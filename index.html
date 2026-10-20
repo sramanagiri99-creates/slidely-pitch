@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Slidely Growth Proposal</title>
+<meta name="description" content="How I'd help Slidely grow: a growth and brand proposal by Sramana Giri.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300..600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sky-blue frame around one white page. Photo hero with the product sinking into the grass,
+   then calm alternating rows: copy on one side, a product-style card on the other. Single light look by design. */
+:root{
+  --frame:#A9CBEA;
+  --page:#FFFFFF;
+  --soft:#F5F7FA;
+  --ink:#0C0D0F;
+  --ink-2:#5E6570;
+  --ink-3:#99A0AA;
+  --line:#E7EAEF;
+  --bar:#E4EAF2;
+  --good:#1E9A55;
+
+  --serif:"Instrument Serif", "Iowan Old Style", "Times New Roman", serif;
+  --sans:"Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --mono:"Geist Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+  --gx:max(20px, env(safe-area-inset-left, 0px));
+  --r:14px;
+  --shadow:0 1px 2px rgba(12,13,15,.04), 0 14px 36px rgba(30,45,70,.08);
+  --shadow-lg:0 2px 4px rgba(12,13,15,.05), 0 30px 70px rgba(30,45,70,.16);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--page); color:var(--ink); font-family:var(--sans); font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0}
+ul,ol{padding:0; list-style:none}
+a{color:inherit; text-decoration:none}
+img{display:block; max-width:100%}
+:focus-visible{outline:2px solid var(--ink); outline-offset:3px; border-radius:6px}
+
+.page{background:var(--page); overflow:hidden}
+.wrap{max-width:1100px; margin:0 auto; padding-left:var(--gx); padding-right:max(20px, env(safe-area-inset-right, 0px))}
+
+/* ---------- atoms ---------- */
+.btn{display:inline-flex; align-items:center; gap:10px; padding:13px 24px; border-radius:6px; background:var(--ink); color:#fff; font-size:14.5px; font-weight:500; white-space:nowrap; box-shadow:0 8px 20px rgba(12,13,15,.18); transition:transform .25s var(--ease), box-shadow .25s}
+.btn:hover{transform:translateY(-1px); box-shadow:0 12px 26px rgba(12,13,15,.22)}
+.chip{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:6px; background:rgba(255,255,255,.75); border:1px solid rgba(255,255,255,.9); font-size:12.5px; font-weight:500; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px)}
+.chip .s{width:16px; height:16px; border-radius:3px; background:var(--ink); color:#fff; display:grid; place-items:center; font-size:10px; font-weight:600}
+.kicker{font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3)}
+.h1{font-family:var(--serif); font-weight:400; font-size:clamp(50px,7.2vw,96px); line-height:.98; letter-spacing:-.02em; text-wrap:balance}
+.h2{font-family:var(--serif); font-weight:400; font-size:clamp(36px,4.2vw,56px); line-height:1.04; letter-spacing:-.015em; text-wrap:balance}
+.h3{font-family:var(--serif); font-weight:400; font-size:clamp(26px,2.4vw,32px); line-height:1.1}
+.muted{color:var(--ink-2)}
+.lede{font-size:clamp(16px,1.3vw,18px); color:var(--ink-2); max-width:52ch; text-wrap:pretty}
+.card{background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--shadow)}
+.ph{position:relative; overflow:hidden; border-radius:var(--r); background:var(--soft)}
+.ph img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.tiny{font-size:11.5px; color:var(--ink-3)}
+.ln{height:6px; border-radius:3px; background:var(--line)}
+
+/* platform label: the first line of every channel section */
+.platform{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; font-size:15px; line-height:1.3}
+.platform b{font-weight:600; color:var(--ink)}
+.platform .sub{color:var(--ink-2)}
+.platform .sub::before{content:"·"; margin-right:10px; color:var(--ink-3)}
+.pf{width:24px; height:24px; border-radius:6px; flex:none; display:grid; place-items:center; color:#fff; font-size:11.5px; font-weight:700; letter-spacing:-.02em; position:relative}
+.pf + .pf{margin-left:-4px}
+.pf.yt{background:#FF0033}
+.pf.yt::after{content:""; margin-left:2px; border-left:8px solid #fff; border-top:5px solid transparent; border-bottom:5px solid transparent}
+.pf.li{background:#0A66C2}
+.pf.ig{background:linear-gradient(45deg,#F58529,#DD2A7B 55%,#8134AF)}
+.pf.ig::after{content:""; width:11px; height:11px; border:2px solid #fff; border-radius:4px; box-sizing:border-box}
+.pf.off{background:var(--ink)}
+.pf.off::after{content:""; width:8px; height:8px; border-radius:50%; border:2px solid #fff}
+.pillar .platform{font-size:14px}
+
+/* ---------- hero ---------- */
+.hero{position:relative; isolation:isolate; min-height:clamp(760px,100vh,980px); display:flex; flex-direction:column; overflow:hidden}
+.hero-bg, .hero-grass{position:absolute; inset:0; background:url("img/sky-field.jpg") 50% 100% / cover no-repeat}
+.hero-bg{z-index:-2}
+.hero-bg::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,.1) 40%, transparent 60%)}
+/* the same photo again, only its grass strip, laid over the product card so the card sits in the field */
+.hero-grass{z-index:2; pointer-events:none; -webkit-mask-image:linear-gradient(to top, #000 0%, #000 14%, transparent 27%); mask-image:linear-gradient(to top, #000 0%, #000 14%, transparent 27%)}
+
+.nav{position:relative; z-index:5; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px; padding:18px clamp(16px,2.4vw,28px)}
+.logo{display:flex; align-items:center; gap:10px; font-weight:600; font-size:15px; letter-spacing:-.01em}
+.logo i{width:30px; height:30px; border-radius:8px; background:var(--ink); color:#fff; display:grid; place-items:center; font-style:normal; font-family:var(--serif); font-size:17px}
+.menu{display:flex; gap:2px; padding:4px; border-radius:8px; background:#fff; box-shadow:0 6px 18px rgba(30,45,70,.12)}
+.menu a{padding:7px 14px; border-radius:6px; font-size:13px; font-weight:500; color:var(--ink-2); transition:background .2s, color .2s}
+.menu a:hover{color:var(--ink); background:var(--soft)}
+.menu a.on{background:var(--ink); color:#fff}
+.nav .btn{justify-self:end; padding:10px 18px; font-size:13.5px}
+@media (max-width:860px){ .menu{display:none} .nav{grid-template-columns:1fr auto} }
+
+.hero-copy{position:relative; z-index:3; display:flex; flex-direction:column; align-items:center; text-align:center; gap:22px; padding:clamp(28px,6vh,64px) 20px 0}
+.hero-copy .h1{max-width:13ch}
+.hero-copy .lede{max-width:46ch; color:#3E4651}
+
+.app{
+  position:relative; z-index:1; width:min(980px, calc(100% - 40px)); margin:clamp(40px,7vh,72px) auto 0;
+  background:#fff; border-radius:14px 14px 0 0; box-shadow:var(--shadow-lg); border:1px solid rgba(255,255,255,.8);
+  display:grid; grid-template-columns:150px minmax(0,1fr) 230px; height:clamp(380px,46vh,470px); overflow:hidden; font-size:12px;
+}
+.app-side{border-right:1px solid var(--line); padding:12px 10px; display:flex; flex-direction:column; gap:10px; background:#FBFCFD}
+.app-brand{display:flex; align-items:center; gap:8px; font-weight:600; font-size:12.5px; padding:0 4px 8px; border-bottom:1px solid var(--line)}
+.app-brand i{width:22px; height:22px; border-radius:6px; background:var(--ink); color:#fff; display:grid; place-items:center; font-style:normal; font-family:var(--serif); font-size:13px}
+.thumbs{display:flex; flex-direction:column; gap:8px}
+.thumbs li{display:flex; gap:8px; align-items:flex-start}
+.thumbs b{font-weight:500; color:var(--ink-3); font-size:10.5px; width:10px; font-variant-numeric:tabular-nums}
+.thumbs span{flex:1; aspect-ratio:16/9; border-radius:4px; border:1px solid var(--line); background:#fff; padding:5px; display:flex; flex-direction:column; gap:3px}
+.thumbs span i{display:block; height:3px; border-radius:2px; background:var(--line)}
+.thumbs span i:first-child{width:60%; height:4px; background:#C9D2DD}
+.thumbs li.on span{border:1.5px solid var(--ink)}
+.app-main{display:flex; flex-direction:column; min-width:0}
+.app-top{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 14px; border-bottom:1px solid var(--line)}
+.app-top b{font-weight:600; font-size:12.5px}
+.app-top .present{background:var(--ink); color:#fff; border-radius:5px; padding:5px 10px; font-size:11px; font-weight:500}
+.canvas{flex:1; background:var(--soft); display:grid; place-items:center; padding:18px}
+.slide{width:100%; max-width:440px; aspect-ratio:16/9; background:#fff; border-radius:6px; box-shadow:var(--shadow); padding:7% 8%; display:grid; grid-template-columns:1.1fr .9fr; gap:8%; align-items:center}
+.slide h4{font-family:var(--serif); font-weight:400; font-size:clamp(17px,2vw,26px); line-height:1.02; margin-bottom:10px}
+.slide .ln + .ln{margin-top:6px}
+.mini-bars{display:flex; align-items:flex-end; gap:8%; height:70%; border-bottom:1px solid var(--line)}
+.mini-bars i{flex:1; background:var(--bar); border-top:2px solid var(--ink); border-radius:2px 2px 0 0}
+.app-ai{border-left:1px solid var(--line); padding:12px; display:flex; flex-direction:column; gap:10px}
+.app-ai .hd{display:flex; justify-content:space-between; align-items:center; font-weight:600; font-size:12.5px}
+.prompt{background:var(--soft); border:1px solid var(--line); border-radius:8px; padding:9px 10px; color:var(--ink-2)}
+.fix{display:flex; gap:8px; align-items:flex-start; padding:8px 0; border-bottom:1px solid var(--line)}
+.fix:last-child{border-bottom:0}
+.tick{width:16px; height:16px; border-radius:50%; background:var(--good); flex:none; display:grid; place-items:center; margin-top:1px}
+.tick::after{content:""; width:6px; height:3px; border:1.6px solid #fff; border-top:0; border-right:0; transform:rotate(-45deg) translate(1px,-1px)}
+.fix b{display:block; font-weight:500}
+@media (max-width:860px){ .app{grid-template-columns:minmax(0,1fr)} .app-side, .app-ai{display:none} }
+
+/* ---------- levers strip ---------- */
+.levers{display:flex; flex-wrap:wrap; justify-content:center; gap:14px 44px; padding:44px 0; border-bottom:1px solid var(--line); color:var(--ink-3); font-size:15px; font-weight:500}
+.levers span{display:flex; align-items:center; gap:10px}
+.levers span::before{content:""; width:6px; height:6px; border-radius:50%; background:#C3CBD5}
+
+/* ---------- sections ---------- */
+.section{padding-block:clamp(80px,11vw,140px)}
+.section + .section{padding-top:0}
+.center-head{display:flex; flex-direction:column; align-items:center; text-align:center; gap:18px; margin-bottom:clamp(40px,5vw,64px)}
+.center-head .h2{max-width:20ch}
+.center-head .lede{max-width:58ch}
+.row{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(40px,7vw,100px); align-items:center}
+.row.flip > :first-child{order:2}
+.row .copy{display:flex; flex-direction:column; gap:18px; min-width:0}
+.row .copy .h2{max-width:15ch}
+@media (max-width:900px){ .row{grid-template-columns:1fr} .row.flip > :first-child{order:0} }
+
+.points{display:flex; flex-direction:column; gap:12px; margin-top:6px}
+.points li{display:flex; gap:12px; color:var(--ink-2); font-size:15.5px}
+.points li::before{content:""; flex:none; width:18px; height:18px; margin-top:3px; border-radius:50%; background:var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5.5 9.3l2.3 2.2 4.7-5' fill='none' stroke='%230C0D0F' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat; border:1px solid var(--line)}
+.result{border-top:1px solid var(--line); padding-top:16px; margin-top:6px; display:flex; flex-direction:column; gap:4px}
+.result p{font-family:var(--serif); font-size:clamp(20px,1.7vw,23px); line-height:1.25}
+
+/* stage photo: fixed 16:9 crop so the projected slides stay registered to the screen at every width.
+   Photo is 2000x1429, cropped at object-position 50% 45%, so image-y maps to (y - 9.56%) / 78.75%. */
+.stage-photo{aspect-ratio:16/9}
+.stage-photo img{object-position:50% 45%}
+.projection{
+  position:absolute; left:30%; top:34.85%; width:36.2%; height:31.1%; container-type:inline-size;
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-content:center; gap:4cqw 3cqw;
+}
+.ps{aspect-ratio:16/9; background:#FCFCFB; border-radius:.6cqw; padding:3cqw 3.4cqw; display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; opacity:.96; box-shadow:0 0 0 .2cqw rgba(12,13,15,.05)}
+.ps.dark{background:#16171A; color:#F4F2EE}
+.ps.blue{background:#CFE2F3}
+.ps small{font-family:var(--mono); font-size:1.5cqw; letter-spacing:.12em; text-transform:uppercase; opacity:.55}
+.ps b{font-family:var(--serif); font-weight:400; font-size:3.4cqw; line-height:1}
+.ps i{display:block; height:.7cqw; border-radius:.4cqw; background:rgba(12,13,15,.12)}
+.ps i + i{margin-top:1cqw}
+.ps.dark i{background:rgba(244,242,238,.22)}
+.ps .bars{display:flex; align-items:flex-end; gap:1.4cqw; height:7cqw; border-bottom:.2cqw solid rgba(12,13,15,.15)}
+.ps .bars em{flex:1; background:#DCE4EE; border-top:.4cqw solid var(--ink)}
+.ps .dots{display:flex; justify-content:space-between; align-items:center; position:relative}
+.ps .dots::before{content:""; position:absolute; left:0; right:0; top:50%; height:.25cqw; background:rgba(12,13,15,.2)}
+.ps .dots em{position:relative; width:1.6cqw; height:1.6cqw; border-radius:50%; background:var(--ink)}
+.ps .dots em:last-child{background:#fff; box-shadow:inset 0 0 0 .35cqw var(--ink)}
+
+/* engine chart card */
+.chart{padding:22px 24px 18px}
+.chart-hd{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:18px}
+.chart-hd b{display:block; font-family:var(--serif); font-weight:400; font-size:28px; line-height:1.1}
+.chart-hd .sel{font-size:12px; color:var(--ink-2); border:1px solid var(--line); border-radius:6px; padding:5px 10px; white-space:nowrap}
+.plot{position:relative; height:280px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); align-items:end; gap:clamp(14px,3vw,34px); padding:0 6px; background:repeating-linear-gradient(to top, transparent 0 51px, var(--line) 51px 52px)}
+.plot .b{position:relative; background:var(--bar); border-top:2px solid var(--ink); border-radius:3px 3px 0 0}
+.plot .b.on{background:#D3DDE9}
+.tip{position:absolute; left:50%; bottom:calc(100% + 12px); transform:translateX(-50%); background:#fff; border-radius:10px; box-shadow:var(--shadow-lg); padding:10px 12px; width:max-content; font-size:12px; display:flex; flex-direction:column; gap:4px; z-index:2}
+.tip b{font-size:13px}
+.tip span{display:flex; justify-content:space-between; gap:18px; color:var(--ink-2)}
+.tip span em{font-style:normal; color:var(--ink); font-weight:500}
+.xl{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(14px,3vw,34px); padding:12px 6px 0; text-align:center; font-size:12.5px; color:var(--ink-3)}
+
+/* pillars */
+.pillars{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px}
+.pillar{display:flex; flex-direction:column; gap:16px; min-width:0}
+.pillar .ph{aspect-ratio:4/3.4}
+.pillar p{font-size:15px; color:var(--ink-2)}
+@media (max-width:900px){ .pillars{grid-template-columns:1fr} .pillar .ph{aspect-ratio:16/10} }
+.focus{margin-top:28px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:14px 28px; padding:20px 24px; border-radius:var(--r); background:var(--soft)}
+.focus p{font-family:var(--serif); font-size:clamp(20px,1.8vw,24px)}
+
+/* part divider */
+.part{display:flex; flex-direction:column; align-items:center; text-align:center; gap:16px; padding-block:clamp(64px,8vw,100px); border-top:1px solid var(--line)}
+.part .h1{font-size:clamp(46px,6vw,80px); max-width:14ch}
+
+/* playlist card */
+.playlist{padding:14px; display:flex; flex-direction:column; gap:12px}
+.player{aspect-ratio:16/9}
+.player::after{content:""; position:absolute; left:12px; right:12px; bottom:12px; height:3px; border-radius:2px; background:linear-gradient(90deg, #fff 0 38%, rgba(255,255,255,.35) 38%)}
+.pl-hd{display:flex; justify-content:space-between; align-items:baseline; gap:10px}
+.pl-hd b{font-weight:600; font-size:14px}
+.eps li{display:grid; grid-template-columns:28px minmax(0,1fr) auto; gap:10px; align-items:center; padding:9px 4px; border-top:1px solid var(--line); font-size:13.5px}
+.eps li .n{font-family:var(--mono); font-size:11px; color:var(--ink-3)}
+.eps li .d{font-size:11.5px; color:var(--ink-3); white-space:nowrap}
+.eps li.on{font-weight:500}
+.formats{display:flex; gap:8px; flex-wrap:wrap}
+.formats span{font-size:12px; padding:5px 10px; border-radius:6px; background:var(--soft); border:1px solid var(--line); color:var(--ink-2)}
+
+/* linkedin system card */
+.stack{display:flex; flex-direction:column; gap:14px}
+.cal{padding:16px}
+.cal-hd{display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; font-weight:600; font-size:13.5px}
+.cal-hd span{font-weight:500; font-size:11.5px; color:var(--good); background:#E6F5EC; padding:3px 8px; border-radius:5px}
+.days{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px}
+.days div{background:var(--soft); border-radius:8px; padding:10px 8px; display:flex; flex-direction:column; gap:8px; min-width:0}
+.days small{font-family:var(--mono); font-size:10px; color:var(--ink-3); letter-spacing:.06em}
+.days b{font-size:12px; font-weight:500; line-height:1.25}
+.av{width:22px; height:22px; border-radius:50%; display:grid; place-items:center; color:#fff; font-size:9.5px; font-weight:600; flex:none}
+.draft{padding:14px 16px; display:flex; flex-direction:column; gap:10px}
+.draft .who{display:flex; align-items:center; gap:10px}
+.draft .who .av{width:30px; height:30px; font-size:11px}
+.draft .who b{display:block; font-size:13px; font-weight:600; line-height:1.2}
+.draft .who em{margin-left:auto; font-style:normal; font-size:11px; padding:3px 8px; border-radius:5px; background:var(--soft); color:var(--ink-2)}
+.draft p{font-size:14px; line-height:1.45}
+.draft.shift{margin-left:clamp(0px,5vw,48px)}
+.metrics{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px}
+.metrics span{font-size:12.5px; padding:6px 11px; border-radius:6px; border:1px solid var(--line); color:var(--ink-2)}
+
+/* creators */
+.creator{display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1fr); gap:14px; padding:14px}
+.creator .ph{min-height:360px; border-radius:10px}
+.ideas{display:flex; flex-direction:column; gap:10px; justify-content:center}
+.ideas li{background:var(--soft); border-radius:10px; padding:14px; font-family:var(--serif); font-size:18px; line-height:1.2}
+.ideas li small{display:block; font-family:var(--mono); font-size:10px; letter-spacing:.1em; color:var(--ink-3); margin-bottom:6px; text-transform:uppercase}
+@media (max-width:560px){ .creator{grid-template-columns:1fr} .creator .ph{min-height:0; aspect-ratio:4/3} }
+
+/* pitch-30 feature */
+.feature{display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:20px; align-items:stretch}
+.feature .ph{min-height:clamp(380px,40vw,540px)}
+.feature .panel{background:var(--soft); border-radius:var(--r); padding:clamp(24px,3.4vw,44px); display:flex; flex-direction:column; gap:18px; justify-content:center}
+.timer{display:flex; align-items:center; gap:12px; font-family:var(--mono); font-size:11.5px; color:var(--ink-3)}
+.timer span{flex:1; height:3px; border-radius:2px; background:var(--line); overflow:hidden}
+.timer span::after{content:""; display:block; height:100%; width:100%; background:var(--ink); transform-origin:0 50%; animation:fill 3s var(--ease) both; animation-timeline:view(); animation-range:entry 20% cover 45%}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.steps{counter-reset:s; display:flex; flex-direction:column; gap:10px}
+.steps li{counter-increment:s; display:grid; grid-template-columns:28px 1fr; gap:10px; font-size:15px; color:var(--ink-2)}
+.steps li::before{content:counter(s, decimal-leading-zero); font-family:var(--mono); font-size:11.5px; color:var(--ink-3); padding-top:3px}
+@media (max-width:900px){ .feature{grid-template-columns:1fr} .feature .ph{min-height:0; aspect-ratio:4/3} }
+
+/* offline cards */
+.offline-hero{height:clamp(320px,44vw,600px); margin-bottom:clamp(64px,8vw,110px)}
+.duo{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:14px}
+.duo .ph{aspect-ratio:4/5}
+.ba{padding:14px; display:flex; flex-direction:column; gap:10px; justify-content:center}
+.ba figure{display:flex; flex-direction:column; gap:6px}
+.ba figcaption{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink-3); text-transform:uppercase}
+.mini{aspect-ratio:16/10; border-radius:6px; border:1px solid var(--line); position:relative; overflow:hidden; background:#fff}
+.mini i{position:absolute; display:block; border-radius:1px}
+.mini.after{background:var(--ink); color:#fff; padding:9% 10%; display:flex; flex-direction:column; justify-content:space-between}
+.mini.after b{font-family:var(--serif); font-weight:400; font-size:clamp(16px,1.7vw,22px); line-height:1.05}
+.mini.after span{display:block; height:2px; width:58%; background:rgba(255,255,255,.25); border-radius:2px}
+.mini.after span + span{width:36%; margin-top:6px}
+@media (max-width:560px){ .duo{grid-template-columns:1fr} .duo .ph{aspect-ratio:4/3} }
+
+.board{padding:18px; display:flex; flex-direction:column; gap:12px}
+.board .big{font-family:var(--mono); font-size:clamp(44px,5vw,64px); letter-spacing:-.02em; line-height:1; font-variant-numeric:tabular-nums}
+.board .brief{background:var(--soft); border-radius:8px; padding:10px 12px; font-size:13px; color:var(--ink-2)}
+.vote li{display:grid; grid-template-columns:auto minmax(36px,1fr) 22px; white-space:nowrap; gap:10px; align-items:center; font-size:13px; padding:6px 0}
+.vote .bar{height:6px; border-radius:3px; background:var(--bar); overflow:hidden}
+.vote .bar i{display:block; height:100%; background:var(--ink)}
+.vote small{color:var(--ink-3); text-align:right; font-variant-numeric:tabular-nums}
+
+.posters{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:clamp(36px,4vw,52px)}
+.poster{aspect-ratio:3/4.1; border-radius:8px; padding:clamp(14px,1.6vw,20px); display:flex; flex-direction:column; justify-content:space-between; box-shadow:var(--shadow)}
+.poster .t{font-family:var(--serif); font-size:clamp(20px,2vw,28px); line-height:1.04}
+.poster .ft{display:flex; justify-content:space-between; align-items:flex-end; font-family:var(--mono); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase}
+.poster canvas{width:30px; height:30px; image-rendering:pixelated; display:block}
+.poster.a{background:#fff; border:1px solid var(--line)}
+.poster.b{background:var(--ink); color:#fff}
+.poster.c{background:var(--frame)}
+.poster.d{background:var(--soft); border:1px solid var(--line)}
+@media (max-width:760px){ .posters{grid-template-columns:1fr 1fr} }
+.billboard{aspect-ratio:4/3.2}
+
+/* approach */
+.approach{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
+.approach li{padding:22px 20px 24px; display:flex; flex-direction:column; gap:12px}
+.approach .n{font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.1em}
+.approach .track{height:4px; border-radius:2px; background:var(--soft); overflow:hidden}
+.approach .track i{display:block; height:100%; background:var(--ink); border-radius:2px}
+.approach p{font-size:14.5px; color:var(--ink-2)}
+@media (max-width:900px){ .approach{grid-template-columns:1fr 1fr} }
+@media (max-width:520px){ .approach{grid-template-columns:1fr} }
+.quote{margin-top:clamp(40px,5vw,64px); text-align:center; font-family:var(--serif); font-size:clamp(28px,3.4vw,44px); line-height:1.12; max-width:24ch; margin-inline:auto; text-wrap:balance}
+.quote span{color:var(--ink-3)}
+
+/* closing */
+.cta{position:relative; isolation:isolate; overflow:hidden; text-align:center; display:flex; flex-direction:column; align-items:center; gap:22px; padding:clamp(90px,12vw,150px) 20px clamp(200px,24vw,300px)}
+.cta::before{content:""; position:absolute; inset:0; z-index:-1; background:url("img/sky-field.jpg") 50% 100% / cover no-repeat}
+.cta::after{content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg, #fff 0%, rgba(255,255,255,.55) 25%, rgba(255,255,255,0) 60%)}
+.cta .h1{font-size:clamp(44px,6vw,84px); max-width:14ch}
+.sign{display:flex; align-items:center; gap:12px; padding:8px 8px 8px 10px; border-radius:10px; background:rgba(255,255,255,.8); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); box-shadow:var(--shadow)}
+.sign .av{width:36px; height:36px; background:var(--ink); font-family:var(--serif); font-size:16px; font-weight:400}
+.sign div{text-align:left; padding-right:8px}
+.sign b{display:block; font-size:14px; font-weight:600; line-height:1.2}
+.sign small{font-size:12.5px; color:var(--ink-2)}
+@media (max-width:520px){ .sign{flex-direction:column; text-align:center} .sign div{text-align:center; padding:0} }
+
+footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; padding:26px clamp(20px,3vw,32px); font-size:13px; color:var(--ink-3); border-top:1px solid var(--line)}
+footer a{text-decoration:underline; text-underline-offset:2px}
+
+/* ---------- motion ---------- */
+@keyframes up{from{opacity:0; transform:translateY(18px)}to{opacity:1; transform:none}}
+.hero-copy > *{animation:up .9s var(--ease) both}
+.hero-copy > :nth-child(2){animation-delay:.08s}
+.hero-copy > :nth-child(3){animation-delay:.16s}
+.hero-copy > :nth-child(4){animation-delay:.24s}
+.app{animation:up 1.1s .3s var(--ease) both}
+@supports (animation-timeline: view()){
+  .rv{animation:rv linear both; animation-timeline:view(); animation-range:entry 0% entry 35%}
+  @keyframes rv{from{opacity:.3; transform:translateY(26px)}to{opacity:1; transform:none}}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *{animation:none !important}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="hero-bg" role="img" aria-label="A green grass field under a blue sky with soft clouds"></div>
+
+  <nav class="nav" aria-label="Main">
+    <a class="logo" href="#top"><i>S</i>Sramana Giri</a>
+    <div class="menu">
+      <a class="on" href="#top">Overview</a>
+      <a href="#approach">Approach</a>
+      <a href="#content">Content</a>
+      <a href="#offline">Offline</a>
+      <a href="#plan">Plan</a>
+    </div>
+    <a class="btn" href="https://sramanagiri99-creates.github.io/portfolio/" target="_blank" rel="noopener">View portfolio</a>
+  </nav>
+
+  <div class="hero-copy">
+    <span class="chip">A growth proposal for <span class="s">S</span> Slidely</span>
+    <h1 class="h1">How I&rsquo;d Help Slidely Grow.</h1>
+    <p class="lede">Content, founder branding, employee advocacy, creators and unconventional campaigns, working as one marketing engine that turns attention into sign-ups.</p>
+    <a class="btn" href="#approach">See the plan</a>
+  </div>
+
+  <div class="app" aria-hidden="true">
+    <aside class="app-side">
+      <div class="app-brand"><i>S</i>Slidely</div>
+      <span class="tiny">Seed round deck</span>
+      <ol class="thumbs">
+        <li><b>1</b><span><i></i><i></i><i></i></span></li>
+        <li class="on"><b>2</b><span><i></i><i></i><i></i></span></li>
+        <li><b>3</b><span><i></i><i></i><i></i></span></li>
+        <li><b>4</b><span><i></i><i></i><i></i></span></li>
+        <li><b>5</b><span><i></i><i></i><i></i></span></li>
+      </ol>
+    </aside>
+    <div class="app-main">
+      <div class="app-top"><span><b>The problem</b> <span class="tiny">&middot; Slide 2 of 12</span></span><span class="present">Present</span></div>
+      <div class="canvas">
+        <div class="slide">
+          <div><h4>Great ideas get lost in bad decks.</h4><div class="ln" style="width:90%"></div><div class="ln" style="width:70%"></div><div class="ln" style="width:80%"></div></div>
+          <div class="mini-bars"><i style="height:38%"></i><i style="height:56%"></i><i style="height:92%"></i><i style="height:64%"></i></div>
+        </div>
+      </div>
+    </div>
+    <aside class="app-ai">
+      <div class="hd">AI assistant <span class="tiny">Now</span></div>
+      <div class="prompt">Make this slide clearer</div>
+      <div class="fix"><span class="tick"></span><span><b>Sharpened the headline</b><span class="tiny">One idea per slide</span></span></div>
+      <div class="fix"><span class="tick"></span><span><b>Merged five bullets</b><span class="tiny">Into three short lines</span></span></div>
+      <div class="fix"><span class="tick"></span><span><b>Aligned 14 boxes</b><span class="tiny">Saved a late night</span></span></div>
+    </aside>
+  </div>
+
+  <div class="hero-grass" aria-hidden="true"></div>
+</header>
+
+<div class="wrap">
+  <div class="levers" aria-label="Five growth levers"><span>Content</span><span>Founder branding</span><span>Employee advocacy</span><span>Creator partnerships</span><span>Offline campaigns</span></div>
+</div>
+
+<!-- ================= GOAL ================= -->
+<section class="section" id="goal">
+  <div class="wrap">
+    <div class="center-head rv">
+      <span class="kicker">The goal</span>
+      <h2 class="h2">Make Slidely a brand people discover, follow, and trust.</h2>
+      <p class="lede">Slidely can be more than a useful AI product. It can be the name people think of whenever they need to present, tell a story, or get an idea across.</p>
+    </div>
+    <div class="ph stage-photo rv">
+      <img src="img/presenter-screen.jpg" alt="A speaker on stage presenting a deck of slides on a large screen to a seated audience" loading="lazy">
+      <div class="projection" aria-hidden="true">
+        <div class="ps dark"><small>Slidely</small><b>Your next big idea.</b></div>
+        <div class="ps"><b>The problem</b><span><i style="width:90%"></i><i style="width:68%"></i><i style="width:78%"></i></span></div>
+        <div class="ps"><b>Traction</b><span class="bars"><em style="height:35%"></em><em style="height:52%"></em><em style="height:74%"></em><em style="height:100%"></em></span></div>
+        <div class="ps blue"><small>Principle</small><b>One idea per slide.</b></div>
+        <div class="ps"><b>Roadmap</b><span class="dots"><em></em><em></em><em></em><em></em></span></div>
+        <div class="ps dark"><b>Thank you.</b><span><i style="width:60%"></i><i style="width:38%"></i></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ENGINE ================= -->
+<section class="section" id="approach">
+  <div class="wrap row">
+    <div class="copy rv">
+      <span class="kicker">My approach</span>
+      <h2 class="h2">A marketing engine where every channel has a purpose.</h2>
+      <p class="lede">Each channel does one job, and each one feeds the next.</p>
+      <ul class="points">
+        <li>Content creates awareness.</li>
+        <li>People build credibility.</li>
+        <li>Product demonstrations generate interest.</li>
+        <li>Well-designed campaigns turn interest into sign-ups.</li>
+      </ul>
+    </div>
+    <div class="card chart rv" aria-label="Illustration: each channel builds on the one before it">
+      <div class="chart-hd"><div><span class="tiny">Growth engine</span><b>From attention to adoption</b></div><span class="sel">Stage by stage</span></div>
+      <div class="plot">
+        <div class="b" style="height:30%"></div>
+        <div class="b" style="height:44%"></div>
+        <div class="b on" style="height:58%"><div class="tip"><b>Product demos</b><span>Builds <em>Interest</em></span><span>Feeds <em>Sign-ups</em></span></div></div>
+        <div class="b" style="height:76%"></div>
+      </div>
+      <div class="xl"><span>Content</span><span>People</span><span>Demos</span><span>Campaigns</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PILLARS ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="center-head rv">
+      <span class="kicker">Where I&rsquo;d start</span>
+      <h2 class="h2">Three places to begin.</h2>
+    </div>
+    <div class="pillars">
+      <article class="pillar rv">
+        <div class="ph"><img src="img/filming.jpg" alt="A man speaking to a video camera while a crew films" loading="lazy"></div>
+        <p class="platform"><span class="pf yt"></span><b>YouTube</b><span class="sub">Vlogs &amp; interviews</span></p>
+        <h3 class="h3">Build content people return to</h3>
+        <p>Recurring YouTube formats: founder-led vlogs and interview series that give people a reason to come back.</p>
+      </article>
+      <article class="pillar rv">
+        <div class="ph"><img src="img/team-table.jpg" alt="A team working together around a wooden table with laptops" loading="lazy"></div>
+        <p class="platform"><span class="pf li">in</span><b>LinkedIn</b><span class="sub">Team posts</span></p>
+        <h3 class="h3">Turn the team into a distribution network</h3>
+        <p>A LinkedIn content system that helps each team member post in their own voice and extend Slidely&rsquo;s reach.</p>
+      </article>
+      <article class="pillar rv">
+        <div class="ph"><img src="img/creator-gimbal.jpg" alt="A young woman filming herself with a smartphone on a gimbal outdoors" loading="lazy"></div>
+        <p class="platform"><span class="pf ig"></span><span class="pf off"></span><b>Instagram + Offline</b><span class="sub">Creators &amp; events</span></p>
+        <h3 class="h3">Make Slidely more distinctive</h3>
+        <p>Instagram storytelling and creators, street interviews on YouTube and Instagram, and offline activations.</p>
+      </article>
+    </div>
+    <div class="focus rv"><span class="kicker">My focus</span><p>Creative ideas, backed by distribution, hands-on execution and measurable learning.</p></div>
+  </div>
+</section>
+
+<!-- ================= PART 01 ================= -->
+<div class="wrap" id="content">
+  <div class="part rv">
+    <span class="kicker">Part 01</span>
+    <h2 class="h1">Content &amp; community</h2>
+    <p class="lede">What I&rsquo;d publish on YouTube, LinkedIn and Instagram.</p>
+  </div>
+</div>
+
+<!-- Inside Slidely -->
+<section class="section" id="inside-slidely">
+  <div class="wrap row flip">
+    <div class="copy rv">
+      <p class="platform"><span class="pf yt"></span><b>YouTube content</b><span class="sub">Founder-led vlog series</span></p>
+      <h2 class="h2">On YouTube, I&rsquo;d build &ldquo;Inside Slidely&rdquo;.</h2>
+      <p class="lede">A recurring YouTube vlog series that makes the journey of building Slidely worth following.</p>
+      <p class="muted">Slidely has started publishing on YouTube. I&rsquo;d build on that by taking people behind the scenes of a YC-backed startup: the people, decisions, experiments and challenges. Every video tells a clear story, so it never feels like a product announcement.</p>
+      <div class="result"><span class="kicker">What this could build</span><p>A recognisable founder and company brand, and a continuing reason to follow Slidely.</p></div>
+    </div>
+    <div class="card playlist rv">
+      <div class="ph player"><img src="img/open-office.jpg" alt="People working at computer monitors in a bright open office" loading="lazy"></div>
+      <div class="pl-hd"><b>Inside Slidely &middot; Season one</b><span class="tiny">5 episodes</span></div>
+      <ol class="eps">
+        <li class="on"><span class="n">01</span><span>A Day Inside a YC-Backed Startup</span><span class="d">Now playing</span></li>
+        <li><span class="n">02</span><span>What We&rsquo;re Building at Slidely This Week</span><span class="d">Up next</span></li>
+        <li><span class="n">03</span><span>The Story Behind Our Latest Launch</span><span class="d"></span></li>
+        <li><span class="n">04</span><span>What Building an AI Startup Actually Looks Like</span><span class="d"></span></li>
+        <li><span class="n">05</span><span>Inside Slidely: From Idea to Product</span><span class="d"></span></li>
+      </ol>
+      <div class="formats"><span>YouTube Shorts</span><span>Instagram Reels</span><span>LinkedIn clips</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LinkedIn -->
+<section class="section" id="linkedin">
+  <div class="wrap row">
+    <div class="copy rv">
+      <p class="platform"><span class="pf li">in</span><b>LinkedIn content</b><span class="sub">Employee-led distribution</span></p>
+      <h2 class="h2">On LinkedIn, I&rsquo;d turn every team member into a storyteller.</h2>
+      <p class="lede">For a B2B product, Slidely&rsquo;s LinkedIn company page shouldn&rsquo;t carry the whole burden of marketing. The team&rsquo;s own profiles can do far more.</p>
+      <ul class="points">
+        <li>LinkedIn post ideas tailored to each person&rsquo;s role and voice</li>
+        <li>A library of angles: product, design, AI, startup lessons, customer problems</li>
+        <li>Drafts to personalise, never identical company posts</li>
+        <li>A weekly rhythm and real conversations with founders, operators and buyers</li>
+      </ul>
+      <div class="metrics" aria-label="How I'd measure it"><span>Participation</span><span>Relevant reach</span><span>Engagement quality</span><span>Profile visits</span><span>Referral traffic</span><span>Attributable sign-ups</span></div>
+    </div>
+    <div class="stack rv" aria-hidden="true">
+      <div class="card cal">
+        <div class="cal-hd">Team LinkedIn calendar <span>On track</span></div>
+        <div class="days">
+          <div><small>MON</small><b>Product</b><span class="av" style="background:#3B6FB6">E</span></div>
+          <div><small>TUE</small><b>Startup lessons</b><span class="av" style="background:#B7795A">F</span></div>
+          <div><small>WED</small><b>Design</b><span class="av" style="background:#6F8F6A">D</span></div>
+          <div><small>THU</small><b>Customers</b><span class="av" style="background:#7A6AA8">S</span></div>
+          <div><small>FRI</small><b>Life at Slidely</b><span class="av" style="background:#C2903A">M</span></div>
+        </div>
+      </div>
+      <div class="card draft shift">
+        <div class="who"><span class="av" style="background:#3B6FB6">EN</span><div><b>Engineer at Slidely</b><span class="tiny">Draft in their own voice</span></div><em>Review</em></div>
+        <p>The feature we cut, and what our users taught us about it.</p>
+        <div class="ln" style="width:92%"></div><div class="ln" style="width:60%"></div>
+      </div>
+      <div class="card draft">
+        <div class="who"><span class="av" style="background:#B7795A">FO</span><div><b>Founder at Slidely</b><span class="tiny">Draft in their own voice</span></div><em>Scheduled</em></div>
+        <p>Why we think the blank slide is the hardest part of any deck.</p>
+        <div class="ln" style="width:84%"></div><div class="ln" style="width:52%"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Instagram creators -->
+<section class="section" id="instagram">
+  <div class="wrap row flip">
+    <div class="copy rv">
+      <p class="platform"><span class="pf ig"></span><b>Instagram content</b><span class="sub">Creative direction &amp; creator collaborations</span></p>
+      <h2 class="h2">On Instagram, I&rsquo;d make presentations interesting enough to watch.</h2>
+      <p class="lede">Formats built around the problems people actually have with decks, so Slidely&rsquo;s value is easy to understand and worth sharing.</p>
+      <p class="muted">I&rsquo;d partner with Instagram creators in startups, consulting, productivity and careers on practical demonstrations instead of sponsored posts. Start with a few, test the angles, and choose partners on audience quality and product interest rather than follower count.</p>
+    </div>
+    <div class="card creator rv">
+      <div class="ph"><img src="img/phone-capture.jpg" alt="Hands holding a smartphone, capturing a photo" loading="lazy"></div>
+      <ul class="ideas">
+        <li><small>Creator idea</small>I Tried Fixing My Presentation With AI.</li>
+        <li><small>Creator idea</small>Can I Turn This Messy Deck Into Something Presentable?</li>
+        <li><small>Creator idea</small>How I&rsquo;d Build a Pitch Deck Without Starting From Scratch.</li>
+        <li><small>Creator idea</small>The Presentation Mistakes That Make Good Ideas Look Bad.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Pitch it in 30 -->
+<section class="section" id="pitch-30">
+  <div class="wrap">
+    <div class="feature">
+      <div class="ph rv"><img src="img/street-interview.jpg" alt="A woman speaking into a microphone while a camera crew films her on the street" loading="lazy"></div>
+      <div class="panel rv">
+        <p class="platform"><span class="pf yt"></span><span class="pf ig"></span><b>YouTube + Instagram</b><span class="sub">Street interview series</span></p>
+        <h2 class="h2">Pitch it in 30 seconds.</h2>
+        <p class="muted">Full interviews go on YouTube; the sharpest moments become Instagram Reels. Strangers pitch an idea: a startup, a side project, something unexpected. The focus is the person and the pitch. Slidely comes in when we show how a stronger presentation lands it.</p>
+        <div class="timer" aria-hidden="true">0:00<span></span>0:30</div>
+        <ol class="steps">
+          <li>Find sharp questions and the right locations</li>
+          <li>Film founders, students and professionals</li>
+          <li>Publish each full interview on YouTube</li>
+          <li>Cut the best moments into Instagram Reels and YouTube Shorts</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PART 02 ================= -->
+<div class="wrap" id="offline">
+  <div class="part rv">
+    <span class="kicker">Part 02 &middot; Offline &amp; experiential</span>
+    <h2 class="h1">Beyond the screen</h2>
+    <p class="lede">Let people experience Slidely firsthand, through moments that show the product working and give them something worth sharing.</p>
+  </div>
+  <div class="ph offline-hero rv"><img src="img/audience.jpg" alt="A packed audience seated in rows at a conference" loading="lazy"></div>
+</div>
+
+<!-- Rescue desk -->
+<section class="section" id="rescue-desk">
+  <div class="wrap row">
+    <div class="copy rv">
+      <p class="platform"><span class="pf off"></span><b>Offline event</b><span class="sub">The Presentation Rescue Desk</span></p>
+      <h2 class="h2">Bring your worst slide. Leave with a better one.</h2>
+      <p class="lede">A small desk at coworking spaces and startup events. People bring a messy slide and watch Slidely transform it.</p>
+      <ul class="points">
+        <li>Partner with a few coworking spaces and communities</li>
+        <li>Demo live, on people&rsquo;s own material where possible</li>
+        <li>Capture before-and-afters, with permission</li>
+        <li>Link every visit to a demo or trial sign-up</li>
+      </ul>
+    </div>
+    <div class="duo rv">
+      <div class="ph"><img src="img/coworking.jpg" alt="A bright coworking space with people working at desks" loading="lazy"></div>
+      <div class="card ba" aria-hidden="true">
+        <figure>
+          <div class="mini">
+            <i style="left:7%; top:8%; width:70%; height:10%; background:#2B4F8C"></i>
+            <i style="left:7%; top:25%; width:38%; height:4%; background:#CBD1D8"></i>
+            <i style="left:7%; top:34%; width:42%; height:4%; background:#CBD1D8"></i>
+            <i style="left:7%; top:43%; width:35%; height:4%; background:#CBD1D8"></i>
+            <i style="left:7%; top:52%; width:40%; height:4%; background:#CBD1D8"></i>
+            <i style="left:7%; top:61%; width:30%; height:4%; background:#CBD1D8"></i>
+            <i style="left:56%; top:26%; width:34%; height:30%; background:#E9C46A; transform:rotate(-4deg)"></i>
+            <i style="left:62%; top:60%; width:22%; height:30%; background:#E07A7A; border-radius:50%"></i>
+            <i style="left:7%; top:78%; width:22%; height:10%; background:#9BC48F"></i>
+          </div>
+          <figcaption>Before</figcaption>
+        </figure>
+        <figure>
+          <div class="mini after"><span class="tiny" style="color:rgba(255,255,255,.5)">Slide 07</span><b>One clear idea, well told.</b><div><span></span><span></span></div></div>
+          <figcaption>After</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10-minute challenge -->
+<section class="section" id="deck-challenge">
+  <div class="wrap row flip">
+    <div class="copy rv">
+      <p class="platform"><span class="pf off"></span><b>Offline event</b><span class="sub">The 10-Minute Deck Challenge</span></p>
+      <h2 class="h2">One brief. Ten minutes. Let&rsquo;s see what you build.</h2>
+      <p class="lede">With startup communities, business schools and entrepreneurship groups. Everyone gets the same brief and Slidely, and the room votes for the most compelling deck.</p>
+      <div class="result"><span class="kicker">What this could build</span><p>Hands-on trials, community partnerships, and content made by the people who&rsquo;ll use Slidely.</p></div>
+    </div>
+    <div class="duo rv">
+      <div class="card board" aria-hidden="true">
+        <span class="tiny">Time remaining</span>
+        <span class="big">07:42</span>
+        <div class="brief"><b style="color:var(--ink)">Brief:</b> pitch a neighbourhood coffee subscription in five slides.</div>
+        <span class="tiny">Room vote</span>
+        <ol class="vote">
+          <li><span>Team A</span><span class="bar"><i style="width:82%"></i></span><small>18</small></li>
+          <li><span>Team B</span><span class="bar"><i style="width:59%"></i></span><small>13</small></li>
+          <li><span>Team C</span><span class="bar"><i style="width:41%"></i></span><small>9</small></li>
+        </ol>
+        <span class="tiny">Example event board</span>
+      </div>
+      <div class="ph"><img src="img/workshop.jpg" alt="A group of people working on laptops at desks during an event" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Cost of a bad deck -->
+<section class="section" id="bad-deck">
+  <div class="wrap">
+    <div class="row">
+      <div class="copy rv">
+        <p class="platform"><span class="pf off"></span><b>Offline campaign</b><span class="sub">Outdoor posters</span></p>
+        <h2 class="h2">The cost of a bad deck.</h2>
+        <p class="lede">A witty, minimal campaign in coworking spaces and startup hubs. Each poster names one familiar frustration and carries a QR code to the right demo.</p>
+        <p class="muted">I&rsquo;d pilot it small first: test the message and the locations, then look at QR visits and qualified sign-ups before recommending a larger rollout.</p>
+      </div>
+      <div class="ph billboard rv"><img src="img/billboard.jpg" alt="An empty billboard standing in the middle of a city street" loading="lazy"></div>
+    </div>
+    <div class="posters" aria-label="Sample campaign copy">
+      <div class="poster a rv"><span class="t">Your idea deserves better than slide 17.</span><span class="ft">Slidely<canvas class="qr" data-seed="11" data-fg="#0C0D0F" data-bg="#FFFFFF"></canvas></span></div>
+      <div class="poster b rv"><span class="t">Still fixing fonts at 2&nbsp;AM?</span><span class="ft">Slidely<canvas class="qr" data-seed="23" data-fg="#FFFFFF" data-bg="#0C0D0F"></canvas></span></div>
+      <div class="poster c rv"><span class="t">Great idea. Forty-seven minutes spent aligning boxes.</span><span class="ft">Slidely<canvas class="qr" data-seed="37" data-fg="#0C0D0F" data-bg="#A9CBEA"></canvas></span></div>
+      <div class="poster d rv"><span class="t">Your next big idea shouldn&rsquo;t start with a blank slide.</span><span class="ft">Slidely<canvas class="qr" data-seed="51" data-fg="#0C0D0F" data-bg="#F5F7FA"></canvas></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPROACH ================= -->
+<section class="section" id="plan">
+  <div class="wrap">
+    <div class="center-head rv">
+      <span class="kicker">How I&rsquo;d approach offline</span>
+      <h2 class="h2">Validate the message before scaling the spend.</h2>
+      <p class="lede">No expensive outdoor campaign until the idea has proven itself in one small, practical test.</p>
+    </div>
+    <ol class="approach">
+      <li class="card rv"><span class="n">STEP 01</span><span class="track"><i style="width:25%"></i></span><h3 class="h3">Run one activation</h3><p>Start with a single practical event.</p></li>
+      <li class="card rv"><span class="n">STEP 02</span><span class="track"><i style="width:50%"></i></span><h3 class="h3">Document it</h3><p>Capture the experience as it happens.</p></li>
+      <li class="card rv"><span class="n">STEP 03</span><span class="track"><i style="width:75%"></i></span><h3 class="h3">Distribute online</h3><p>Turn the moment into content.</p></li>
+      <li class="card rv"><span class="n">STEP 04</span><span class="track"><i style="width:100%"></i></span><h3 class="h3">Measure interest</h3><p>Check whether it moved people to the product.</p></li>
+    </ol>
+    <p class="quote rv">The objective isn&rsquo;t simply to make Slidely visible. <span>It&rsquo;s to make that visibility useful.</span></p>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta" role="region" aria-label="Closing">
+  <span class="chip rv">Thank you for reading</span>
+  <h2 class="h1 rv">Let&rsquo;s build something people want to follow.</h2>
+  <div class="sign rv">
+    <span class="av">S</span>
+    <div><b>Sramana Giri</b><small>Growth &amp; Performance Marketing</small></div>
+    <a class="btn" href="https://sramanagiri99-creates.github.io/portfolio/" target="_blank" rel="noopener">Explore my portfolio</a>
+  </div>
+</section>
+
+<footer>
+  <span>A proposal for Slidely by Sramana Giri &middot; Photos from <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span>
+  <a href="#top">Back to top &uarr;</a>
+</footer>
+
+</div>
+
+<script>
+// Decorative QR-style marks for the poster mockups (not scannable).
+document.querySelectorAll('canvas.qr').forEach(function (c) {
+  var n = 21, s = parseInt(c.dataset.seed, 10) || 7, ctx = c.getContext('2d');
+  var fg = c.dataset.fg, bg = c.dataset.bg;
+  c.width = n; c.height = n;
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, n, n);
+  function rnd() { s = (s * 9301 + 49297) % 233280; return s / 233280; }
+  ctx.fillStyle = fg;
+  for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) if (rnd() > .52) ctx.fillRect(x, y, 1, 1);
+  [[0, 0], [n - 7, 0], [0, n - 7]].forEach(function (p) {
+    ctx.fillStyle = fg; ctx.fillRect(p[0], p[1], 7, 7);
+    ctx.fillStyle = bg; ctx.fillRect(p[0] + 1, p[1] + 1, 5, 5);
+    ctx.fillStyle = fg; ctx.fillRect(p[0] + 2, p[1] + 2, 3, 3);
+  });
+});
+
+// Highlight the menu item for the section in view.
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.menu a'));
+  var map = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var y = window.scrollY + window.innerHeight * 0.35, k = 0;
+    map.forEach(function (el, i) { if (el && el.getBoundingClientRect().top + window.scrollY <= y) k = i; });
+    links.forEach(function (a, i) { a.classList.toggle('on', i === k); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>
